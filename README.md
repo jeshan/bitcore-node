@@ -7,5 +7,6 @@ Installs:
 * bitcore wallet service
 
 Run with:
+
 `docker run --restart=unless-stopped -P -d --network=host -v /root/testnode --name testnet jeshan/bitcore-testnet`
 
