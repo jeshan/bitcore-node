@@ -51,6 +51,7 @@ ADD https://github.com/bitpay/bitcore-wallet-service/archive/v${BWS_VERSION}.tar
 RUN tar zxf bws.tar.gz
 
 # setup bitcore wallet service
+COPY bws-config.js /root/bitcore-wallet-service-${BWS_VERSION}/config.js
 RUN cd /root/bitcore-wallet-service-${BWS_VERSION} && npm i
 
 # setup dirs for mongo
