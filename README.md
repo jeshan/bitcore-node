@@ -5,6 +5,7 @@ Installs:
 * insight UI
 * insight API
 * bitcore wallet service
+* Mongo DB
 
 Run with:
 
