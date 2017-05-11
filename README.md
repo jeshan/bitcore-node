@@ -3,9 +3,6 @@ There are some pain points in installing the bitcore wallet service *and* making
 
 I have created this image to solve this.
 
-# bitcore-testnet
-Image to run a bitcoin wallet service that connects to testnet using bitcore
-
 Installs:
 * insight UI
 * insight API
