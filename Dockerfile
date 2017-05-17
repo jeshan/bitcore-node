@@ -1,9 +1,9 @@
 
 # Built with:
-# docker build -t jeshan/bitcore-testnet .
+# docker build -t jeshan/bitcore-node .
 # Run with:
-# docker run --env NETWORK=testnet --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name testnet jeshan/bitcore-testnet
-# docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-testnet
+# docker run --env NETWORK=node --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name testnet jeshan/bitcore-node
+# docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-node
 
 FROM ubuntu
 
