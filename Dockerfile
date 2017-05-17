@@ -2,7 +2,8 @@
 # Built with:
 # docker build -t jeshan/bitcore-testnet .
 # Run with:
-# docker run --restart=unless-stopped -P -d --network=host -v /root/testnode --name testnet jeshan/bitcore-testnet
+# docker run --env NETWORK=testnet --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name testnet jeshan/bitcore-testnet
+# docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-testnet
 
 FROM ubuntu
 
@@ -10,6 +11,7 @@ ARG MONGO_VERSION=3.2
 ARG BWS_VERSION=1.15
 ARG NODE_VERSION=4.4.7
 
+ENV NETWORK=livenet
 LABEL maintainer Jeshan G. BABOOA "j@jeshan.co"
 
 EXPOSE 3001 3232 8333 6667
@@ -38,10 +40,10 @@ RUN npm i -g bitcore-node
 
 WORKDIR /root
 
-RUN bitcore-node create --testnet testnode
-#RUN sed -- 's/livenet/testnet/g' ~/testnode/bitcore-node.json
+RUN bitcore-node create bitcoin-node
+#COPY bitcore-node.json bitcoin-node/
 
-WORKDIR /root/testnode
+WORKDIR /root/bitcoin-node
 RUN bitcore-node install insight-ui insight-api web
 
 WORKDIR /root
@@ -57,5 +59,7 @@ RUN cd /root/bitcore-wallet-service-${BWS_VERSION} && npm i
 # setup dirs for mongo
 RUN mkdir -p /root/mongo-data
 
-ENTRYPOINT mongod --dbpath /root/mongo-data/ --fork --logpath /root/mongo-data/mongod.log && npm start --prefix /root/bitcore-wallet-service-${BWS_VERSION} && cd /root/testnode && bitcore-node start
+ENTRYPOINT sed -i -- "s/livenet/${NETWORK}/g" /root/bitcoin-node/bitcore-node.json && \
+  mongod --dbpath /root/mongo-data/ --fork --logpath /root/mongo-data/mongod.log && \
+  npm start --prefix /root/bitcore-wallet-service-${BWS_VERSION} && cd /root/bitcoin-node && bitcore-node start
 
