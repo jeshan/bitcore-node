@@ -10,6 +10,7 @@ Installs:
 * Mongo DB
 
 To run an image for livenet (the default):
+
 `docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-node`
 
 To run an image for testnet, specify an environment variable *NETWORK* with value *testnet*:
