@@ -9,9 +9,12 @@ Installs:
 * bitcore wallet service
 * Mongo DB
 
-Run with:
+To run an image for livenet (the default):
+`docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-node`
 
-`docker run --restart=unless-stopped -P -d --network=host -v /root/testnode --name testnet jeshan/bitcore-testnet`
+To run an image for testnet, specify an environment variable *NETWORK* with value *testnet*:
+
+`docker run --env NETWORK=testnet --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name testnet jeshan/bitcore-testnet`
 
 Dockerfile available at:
 https://github.com/jeshan/bitcore-testnet
