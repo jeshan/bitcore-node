@@ -17,7 +17,7 @@ ARG NODE_VERSION=4.4.7
 ENV NETWORK=livenet
 LABEL maintainer Jeshan G. BABOOA "j@jeshan.co"
 
-EXPOSE 3001 3232 8333 6667
+EXPOSE 3001 3232 8333 6667 27017 28017
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
