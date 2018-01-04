@@ -4,6 +4,8 @@ FROM node:4.4.7-slim
 RUN apt-get update && apt-get install -y \
   g++ \
   libzmq3-dev \
+  libzmq3-dbg \
+  libzmq3 \
   make \
   python
 
