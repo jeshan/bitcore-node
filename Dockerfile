@@ -29,6 +29,7 @@ RUN rm -rf \
   node_modules/bitcore-node/bin/bitcoin-*/bin/bitcoin-qt \
   node_modules/bitcore-node/bin/bitcoin-*/bin/test_bitcoin \
   node_modules/bitcore-node/bin/bitcoin-*-linux64.tar.gz \
+  /dumb-init_*.deb \
   /root/.npm \
   /root/.node-gyp \
   /tmp/* \
