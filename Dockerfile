@@ -13,7 +13,7 @@ RUN wget https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.
 RUN dpkg -i dumb-init_*.deb
 
 EXPOSE 3001 3232 6667 8333 18333
-HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD pidof bitcoind
+HEALTHCHECK --interval=5s --timeout=5s --retries=10 CMD curl -f http://localhost:3001/insight/
 
 WORKDIR /root/bitcoin-node
 COPY bitcore-node ./
