@@ -13,7 +13,7 @@ To run an image for testnet (the default):
 
 `docker run --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name livenet jeshan/bitcore-node`
 
-To run an image for testnet, specify an environment variable *NETWORK* with value *testnet*:
+To run an image for livenet, specify an environment variable *NETWORK* with value *livenet*:
 
 `docker run --env NETWORK=livenet --restart=unless-stopped -P -d --network=host -v /root/bitcoin-node --name testnet jeshan/bitcore-node`
 
