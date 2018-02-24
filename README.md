@@ -6,8 +6,6 @@ I have created this image to solve this.
 Installs:
 * insight UI
 * insight API
-* bitcore wallet service
-* Mongo DB
 
 To run an image for testnet (the default):
 
